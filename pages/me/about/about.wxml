@@ -1,0 +1,6 @@
+<!--pages/me/about/about.wxml-->
+<view>
+  <view>关于我们信息如下</view>
+  <view>1111111111111111111111</view>
+  <view>2222222222222222222222</view>
+</view>

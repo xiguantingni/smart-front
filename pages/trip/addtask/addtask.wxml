@@ -1,0 +1,36 @@
+<!--pages/trip/addtask/addtask.wxml-->
+<view style='padding: 10px;'>
+  <view class="section">
+    <view class="section__title">联系人</view>
+    <input  bindinput="bindContact" placeholder="名称"/>
+  </view>
+
+  <view>
+    <button type="primary" bindtap='addGood'>添加</button>
+    <view style='border-top: 1px solid grey' wx:for="{{task}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+      <view class="section">
+        <view class="section__title">商品名称</view>
+        <input  bindinput="bindName" data-index="{{idx}}" placeholder="商品名称"/>
+      </view>
+      <view class="section">
+        <view class="section__title">数量</view>
+        <input  bindinput="bindNumber" data-index="{{idx}}" placeholder="数量"/>
+      </view>
+      <view class="section">
+        <view class="section__title">单进价</view>
+        <input  bindinput="bindInPrice" data-index="{{idx}}" placeholder="单进价"/>
+      </view>
+      <view class="section">
+        <view class="section__title">单售价</view>
+        <input  bindinput="bindOutPrice" data-index="{{idx}}" placeholder="单售价"/>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section__title">备注：</view>
+    <input  bindinput="bindRemark" placeholder="添加备注"/>
+  </view>
+
+  <button type="primary" bindtap='confirmAddGood'>确定</button>
+</view>

@@ -1,0 +1,8 @@
+<!--pages/me/bindphone/bindphone.wxml-->
+<view>
+
+    <input bindinput='bindphone' placeholder='手机号码'></input>
+
+    <button bindtap='bindphoneclick'>绑定</button>
+
+</view>

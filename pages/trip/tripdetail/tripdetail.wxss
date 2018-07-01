@@ -1,0 +1,26 @@
+/* pages/trip/tripdetail.wxss */
+.page-container {
+  margin: 0;
+  padding: 10px;
+}
+.trip-name {
+  text-align: center;
+  font-size: 20px;
+}
+.trip-desc {
+  border-bottom: 1px solid #E8E8E8;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+.trip-item {
+  background: #EDEDED;
+  margin-top: 20px;
+}
+.trip-item-contact {
+  width: 50%;
+  display: inline-block;
+}
+.trip-item-good {
+  width: 25%;
+  display: inline-block;
+}

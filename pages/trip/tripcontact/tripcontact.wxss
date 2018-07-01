@@ -1,0 +1,17 @@
+.tripcontainer-container {
+  margin: 0;
+  padding: 10px;
+}
+.desciption {
+  font-weight: bold;
+}
+.good-line view{
+  width: 20%;
+  display: inline-block;
+}
+.good-add {
+  width: 100%;
+  height: 30px;
+  border: 1px solid lightgrey;
+  text-align: center; 
+}

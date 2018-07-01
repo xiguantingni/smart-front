@@ -1,0 +1,35 @@
+<!-- 行程详情 -->
+<view class='page-container'>
+  <view class='trip-name'>{{tripDetail.name}}</view>
+  <view class='trip-desc'>您需要仔细检查以下需求<view data-tripid='{{id}}' bindtap='addTask' style='float: right;'>添加</view></view>
+  <view>
+    <view wx:if="{{taskDetail.length == 0}}">还没有任务，赶紧去添加吧</view>
+    <view wx:else>
+      <view class='trip-item' wx:for="{{taskDetail}}" wx:key="idx" wx:for-item="item" data-tripcontact='{{item}}' bindtap='contactclick'>
+
+      <view class='trip-item-contact'>{{item.name}}</view><view class='trip-item-contact'>{{item.phone}}</view>
+      <view class='task-container'>
+        <view class='trip-item-good'>名称</view>
+        <view class='trip-item-good'>数量</view>
+        <view class='trip-item-good'>单进价</view>
+        <view class='trip-item-good'>单售价</view>
+        <view wx:for="{{item.task}}" wx:key="idx" wx:for-item="taskitem">
+          <view class='trip-item-good'>{{taskitem.name}}</view>
+          <view class='trip-item-good'>{{taskitem.number}}</view>
+          <view class='trip-item-good'>{{taskitem.inPrice}}</view>
+          <view class='trip-item-good'>{{taskitem.outPrice}}</view>
+        </view>
+        <view>{{item.remark}}</view>
+      </view>
+
+    </view>
+    </view>
+
+    <!-- 统计 -->
+    <view>我们为您做了以下统计，希望对您有帮助</view>
+    <view>此次行程，购买以上商品，您需金额：￥500</view>
+    <view>此次行程，您可收获：￥1500</view>
+    <view>此次行程，您共盈利：￥1500 - 500 = 1000</view>
+
+  </view>
+</view>

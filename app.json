@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/trip/tripdetail/tripdetail",
+    "pages/trip/tripcontact/tripcontact",
+    "pages/trip/addtrip/addtrip",
+    "pages/trip/addtask/addtask",
+    "pages/contact/addcontact/addcontact",
+    "pages/contact/contactdetail/contactdetail",
+    "pages/message/sendmessage/sendmessage",
+    "pages/me/bindphone/bindphone",
+    "pages/me/about/about",
+    "pages/me/advice/advice",
+    "pages/me/account/account"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

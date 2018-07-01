@@ -1,0 +1,13 @@
+<!--pages/message/sendmessage.wxml-->
+<view>
+      <view class="section">
+        <view class="section__title">名称</view>
+        <input bindinput="bindName" placeholder="名称"/>
+      </view>
+      <view class="section">
+        <view class="section__title">号码</view>
+        <input  bindinput="bindPhone" placeholder="号码(必填)"/>
+      </view>
+  <textarea placeholder='短信内容' bindinput='bindContent'></textarea>
+  <button type='primary' bindtap='sendClick'>发送</button>
+</view>

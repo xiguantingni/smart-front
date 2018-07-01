@@ -1,0 +1,10 @@
+<!--pages/me/advice/advice.wxml-->
+<view>
+
+  <textarea bindinput='bindAdvice'></textarea>
+
+  <view style='font-size: 10px'>如果您有任何意见和建议，请跟我们联系。如需回复，请绑定手机号，我们将尽快跟您取得联系！</view>
+
+  <button bindtap='sendAdvice'>确定</button>
+
+</view>

@@ -1,0 +1,10 @@
+
+<scroll-view scroll-y>
+  <view class="section__title">姓名</view>
+  <input  bindinput="bindName" placeholder="姓名"/>
+  <view class="section__title">联系电话</view>
+  <input  bindinput="bindPhone" placeholder="联系电话"/>
+  <view class="section__title">备注</view>
+  <input  bindinput="bindRemark" placeholder="备注"/>
+  <button type="primary" bindtap='addContact'>确定</button>
+</scroll-view>

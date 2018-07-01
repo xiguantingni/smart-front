@@ -1,0 +1,7 @@
+<!--pages/me/account/account.wxml-->
+<view>
+
+  <view>这是账户信息</view>
+  <view>您的账户没有任何信息</view>
+
+</view>

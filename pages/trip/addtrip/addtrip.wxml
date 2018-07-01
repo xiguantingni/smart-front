@@ -1,0 +1,13 @@
+<!--pages/trip/addtrip/addtrip.wxml-->
+<view style='padding: 10px;'>
+  <view class="section">
+    <view class="section__title">此行，您要去哪里：</view>
+    <input  bindinput="bindDestination" placeholder="目的地"/>
+  </view>
+  <view class="section">
+    <view class="section__title">备注：</view>
+    <input  bindinput="bindRemark" placeholder="添加备注"/>
+  </view>
+
+  <button type="primary" bindtap='addTrip'>确定</button>
+</view>

@@ -1,0 +1,63 @@
+<view class='tripcontainer-container'>
+  <view class='desciption'>您需要为客户“{{name}}”处理以下商品”</view>
+
+  <view class='good-line'>
+    <view>名称</view>
+    <view style='width: 15%;'>数量</view>
+    <view>单进价</view>
+    <view>单售价</view>
+    <view style='width: 25%;'>操作</view>
+  </view>
+  <view class='good-line' wx:for="{{task}}" wx:key="idx" wx:for-item="item">
+    <view>{{item.name}}</view>
+    <view style='width: 15%;'>{{item.number}}</view>
+    <view>{{item.inPrice}}</view>
+    <view>{{item.outPrice}}</view>
+    <view style='width: 25%;'>编辑 删除</view>
+  </view>
+  <view class='good-add'>+</view>
+
+  <view wx:if="{{isSend}}">
+    <view>成交方式：</view>
+    <radio-group bindchange="changeTransMode">
+      <radio value='post' checked='{{mode === "post"}}'>快递邮寄</radio>
+      <radio value='f2f' checked='{{mode === "f2f"}}'>线下交易</radio>
+    </radio-group>
+    
+    <view wx:if='{{mode === "post"}}'>
+      <view>快递单号：</view>
+      <radio-group bindchange="changeCodeInput">
+        <radio value='scan' checked='{{codeInput === "scan" && mode === "post"}}'>二维码扫码</radio>
+        <radio value='hand' checked='{{codeInput === "hand" && mode === "post"}}'>手工输入</radio>
+      </radio-group>
+      <view wx:if='{{codeInput === "scan"}}'>
+          <button type='primary' bindtap='getScanCode'>扫一扫</button>
+      </view>
+      <view wx:elif='{{codeInput === "hand"}}'>
+          <input bindinput='codeChange' placeholder='快递单号'></input>
+      </view>
+      <view wx:else></view>
+    </view>
+    <view wx:else></view>
+    <view wx:if='{{mode === "post" && codeInput === "scan" && !!code}}'>
+      <view>快递单号：{{code}}</view>
+    </view>
+    <view wx:else></view>
+  </view>
+  <view wx:else>
+    <button type='primary' bindtap='changeIsSend'>我要发货</button>
+  </view>
+
+  <view wx:if="{{isSend && mode === 'post'}}">
+    <view wx:if='{{isMessaged}}'>
+      <view>将为客户{{name}}发送如下短信：</view>
+      <textarea>
+        最近的{{name}}女士/先生，您好！您需要的物品已发送。订单号：【{{code}}】,商品：【2个香蕉，一个苹果】
+      </textarea>
+      <button>确认发送</button>
+    </view>
+    <view wx:else><button bindtap='messageNotify'>通知发货</button></view>
+  </view>
+  <view wx:else></view>
+
+</view>

@@ -1,0 +1,91 @@
+<!--index.wxml-->
+<view class="main-bar">
+  <view wx:if="{{currentPage === 'trip'}}">
+    <view>行程</view>
+    <view style='position: absolute;right: 15px;top: 0px;' bindtap='addTrip'>+</view>
+  </view>
+  <view wx:elif="{{currentPage === 'contact'}}">
+    <view>联系人</view>
+    <view style='position: absolute;right: 15px;top: 0px;' bindtap='addContact'>+</view>
+  </view>
+  <view wx:elif="{{currentPage === 'order'}}">订单</view>
+  <view wx:elif="{{currentPage === 'message'}}">
+    <view>短信</view>
+    <view style='position: absolute;right: 15px;top: 0px;' bindtap='sendMessage'>发短信</view>
+  </view>
+  <view wx:elif="{{currentPage === 'me'}}">我</view>
+  <view wx:else>出错</view>
+</view>
+<scroll-view scroll-y='{{true}}' class='main-body'>
+        <view class='main-body-trip {{currentPage === "trip" ? "active" : ""}}'>
+              <view wx:if="{{trip.length === 0}}">暂无行程，赶紧添加一个吧</view>
+              <view wx:else>
+                  <view class='trip-item' wx:for="{{trip}}" wx:key="idx" wx:for-item="item" data-tripid='{{item.id}}' bindtap='tripClick'>
+                    <view style='text-align: center;font-size: 28px;'>{{item.date + ' ' + item.destination}}</view>
+                    <view style='overflow: hidden;font-size: 12px;'>{{item.remark}}</view>
+                  </view>
+              </view>
+        </view>
+  <view class='main-body-trip {{currentPage === "contact" ? "active" : ""}}'>
+      <view>
+          <view wx:if="{{contact.length === 0}}">暂无联系人，赶紧添加一个吧</view>
+          <view wx:else>
+              <input value='搜索'></input>
+              <view class='contact-item' wx:for='{{contact}}' wx:key="idx" wx:for-item="item" data-contactinfo='{{item}}' bindtap='contactClick'>
+                <view>{{item.name}}</view>
+                <view>{{item.phone}}</view>
+              </view>
+          </view>
+      </view>
+  </view>
+  <view class='main-body-trip {{currentPage === "order" ? "active" : ""}}'>
+
+      <input value='{{courierNumber}}' bindinput='bindCourierNumber' placeholder='快递单号'></input>
+      <button type="primary" bindtap='courierNumberClick'>查询</button>
+      
+      <view wx:if='{{courierInfo !== null}}'>
+        <view>快递公司：{{courierInfo.company}}</view>
+        <view>单号：{{courierInfo.no}}</view>
+        <view wx:for='{{courierInfo.list}}' wx:key="idx" wx:for-item="item">
+          <view>{{item.datetime}}</view>
+          <view>{{item.remark}}</view>
+        </view>
+      </view>
+      <view wx:else></view>
+    
+  </view>
+  <view class='main-body-trip {{currentPage === "message" ? "active" : ""}}'>
+        <view wx:if="{{message.length === 0}}">暂无短信</view>
+        <view wx:else>
+          <view wx:for='{{message}}' wx:key="idx" wx:for-item="item">
+              <view class='message-item'>
+                  <view style='display: flex; justify-content: space-between;'>
+                    <view>{{item.name}}</view><view>{{item.phone}}</view>
+                  </view>
+                  <view>{{item.content}}</view>
+              </view>
+          </view>
+        </view>
+  </view>
+  <view class='main-body-trip {{currentPage === "me" ? "active" : ""}}'>
+    <view wx:if='{{!phone}}'>
+      <view class='me-fun-item' bindtap='bindPhoneClick'>绑定手机号</view>
+    </view>
+    <view wx:else>
+      <view class='me-fun-item'>
+        <view>手机号</view><view>{{phone}}</view>
+      </view>
+    </view>
+    <view class='me-fun-item' bindtap='accountClick'>账户</view>
+    <view class='me-fun-item'>打赏</view>
+    <view class='me-fun-item' bindtap='adviceClick'>评价</view>
+    <view class='me-fun-item' bindtap='aboutmeClick'>关于我们</view>
+  </view>
+</scroll-view>
+<view class='main-foot'>
+  <view class='main-foot-item {{currentPage === "trip" ? "active" : ""}}' data-page='trip' bindtap='changePage'>行程</view>
+  <view class='main-foot-item {{currentPage === "contact" ? "active" : ""}}' data-page='contact' bindtap='changePage'>联系人</view>
+  <view class='main-foot-item {{currentPage === "order" ? "active" : ""}}' data-page='order' bindtap='changePage'>订单</view>
+  <view class='main-foot-item {{currentPage === "message" ? "active" : ""}}' data-page='message' bindtap='changePage'>短信</view>
+  <view class='main-foot-item {{currentPage === "me" ? "active" : ""}}' data-page='me' bindtap='changePage'>我</view>
+</view>

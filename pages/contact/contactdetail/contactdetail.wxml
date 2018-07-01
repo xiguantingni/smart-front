@@ -1,0 +1,23 @@
+<!--pages/contact/contactdetail/contactdetail.wxml-->
+<scroll-view scroll-y>
+
+  <view class="section__title">姓名</view>
+  <view wx:if='{{isEdit}}'><input value='{{name}}' bindinput="bindName" placeholder="姓名"/></view>
+  <view wx:else><view>{{name}}</view></view>
+
+  <view class="section__title">联系电话</view>
+  <view wx:if='{{isEdit}}'><input value='{{phone}}' bindinput="bindPhone" placeholder="联系电话"/></view>
+  <view wx:else><view>{{phone || '暂无信息。'}}</view></view>
+
+  <view class="section__title">备注</view>
+  <view wx:if='{{isEdit}}'><input value='{{remark}}' bindinput="bindRemark" placeholder="备注"/></view>
+  <view wx:else><view>{{remark || '暂无信息。'}}</view></view>
+
+  <view wx:if='{{isEdit}}'>
+    <button type="primary" bindtap='editContact'>确认</button>
+  </view>
+  <view wx:else>
+    <button type="primary" bindtap='editClick'>修改</button>
+  </view>
+  <button type="primary" bindtap='deleteContact'>删除联系人</button>
+</scroll-view>
