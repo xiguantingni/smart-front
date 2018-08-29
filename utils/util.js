@@ -6,6 +6,7 @@ const formatDate = (date, format='') => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
+  // nothing
   if (format === 'YYYY-MM-DD') {
     return year + '-' + formatNumber(month) + '-' + formatNumber(day);
   }
